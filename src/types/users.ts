@@ -10,6 +10,7 @@ interface IPayment {
 export interface IUser {
     name: string;
     phone: string;
+    id: string;
     loans: ILoan[];
     payments: IPayment[];
 }
