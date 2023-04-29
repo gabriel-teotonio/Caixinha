@@ -11,6 +11,7 @@ export const theme: ITheme = {
         lightBlue_100:'#6475A1',
         lightBlue_200: '#364261',
         darkBlue: '#071438',
+        darkBlueTransparent: 'rgba(0, 24, 86, 0.12)',
         whiteBlue: '#EFF4FF',
         white:'#fff',
         shadowInfoItem: '1px 1px 4px  rgba(0, 24, 86, 0.08)'
