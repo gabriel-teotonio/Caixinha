@@ -1,68 +1,40 @@
+import { IUser } from "../types/users";
 
-export const Users = [
+export const Users: IUser[] = [
     {
         name: "Rajesh",
         phone: "91984479773",
         loans: [
-            {value: 200, date: "2023,04,12"},
-            {value: 200, date: "2023,04,12"},
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
         ],
         payments: [
-            {value: 200, date: "2023,04,14"},
-            {value: 100, date: "2023,04,19"},
-            {value: 50, date: "2023,04,25"},
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
+        ]
+    },
+    {
+        name: "Leonard",
+        phone: "91984479773",
+        loans: [
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
+        ],
+        payments: [
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
         ]
     },
     {
         name: "Sheldon",
         phone: "91984479773",
         loans: [
-            {value: 200, date: "2023,04,12"},
-            {value: 200, date: "2023,04,12"},
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
         ],
         payments: [
-            {value: 200, date: "2023,04,14"},
-            {value: 100, date: "2023,04,19"},
-            {value: 50, date: "2023,04,25"},
-        ]
-    },
-    {
-        name: "Bernadet",
-        phone: "91984479773",
-        loans: [
-            {value: 200, date: "2023,04,12"},
-            {value: 200, date: "2023,04,12"},
-        ],
-        payments: [
-            {value: 200, date: "2023,04,14"},
-            {value: 100, date: "2023,04,19"},
-            {value: 50, date: "2023,04,25"},
-        ]
-    },
-    {
-        name: "peny",
-        phone: "91984479773",
-        loans: [
-            {value: 200, date: "2023,04,12"},
-            {value: 200, date: "2023,04,12"},
-        ],
-        payments: [
-            {value: 200, date: "2023,04,14"},
-            {value: 100, date: "2023,04,19"},
-            {value: 50, date: "2023,04,25"},
-        ]
-    },
-    {
-        name: "amy",
-        phone: "91984479773",
-        loans: [
-            {value: 200, date: "2023,04,12"},
-            {value: 200, date: "2023,04,12"},
-        ],
-        payments: [
-            {value: 200, date: "2023,04,14"},
-            {value: 100, date: "2023,04,19"},
-            {value: 50, date: "2023,04,25"},
+            {value: 200, date: new Date(2023,4,14)},
+            {value: 200, date: new Date(2023,4,15)},
         ]
     },
 ]

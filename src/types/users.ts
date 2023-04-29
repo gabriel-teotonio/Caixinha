@@ -1,13 +1,15 @@
+interface ILoan {
+    value: number;
+    date: Date;
+}
+interface IPayment {
+    value: number;
+    date: Date;
+}
 
-export interface IUsers {
+export interface IUser {
     name: string;
     phone: string;
-    loans:{
-        value: number;
-        date: Date;
-    },
-    payments:{
-        value: number;
-        date: Date;
-    }
+    loans: ILoan[];
+    payments: IPayment[];
 }
