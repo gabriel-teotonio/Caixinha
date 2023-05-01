@@ -25,7 +25,6 @@ export const TransactionsArea = () => {
             })
         })      
         
-        console.log(AllTransactions)
        return AllTransactions;
     }
 
@@ -35,13 +34,15 @@ export const TransactionsArea = () => {
         <C.Title>Últimos pagamentos</C.Title>
         <C.TransactionList>
            { 
-            getAllTransactions().map(transaction => {
+            getAllTransactions().map((transaction,index) => {
             const userName = Users.find(user => user.id === transaction.userId)
-            return <TransactionItem
-             key={transaction.userId} 
-             transaction={transaction}
-             userName={userName?.name}
-             />
+                if(index <= 4){
+                    return <TransactionItem
+                    key={transaction.userId} 
+                    transaction={transaction}
+                    userName={userName?.name}
+                    />
+                }
             }
             )
            }

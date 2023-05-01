@@ -14,6 +14,6 @@ export const Main = styled.main`
 `
 
 export const MainContent = styled.div`
-    height: auto;
-    margin-top: 2rem;
+    max-height: calc(100% - 49px);
+    margin-top: 1rem;
 `
