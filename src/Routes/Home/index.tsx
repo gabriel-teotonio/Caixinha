@@ -1,9 +1,11 @@
 import { InfoItem } from "../../Components/InfoItem"
 import { TransactionsArea } from "../../Components/TransactionsArea"
+import { TransactionsProvider } from "../../contexts/transactionsContext"
 import * as C from './styles'
 
 export const Home = () => {
   return (
+    <TransactionsProvider>
     <C.Container>
       <C.InfoArea>
         <InfoItem title="Pagamentos" value={2500} />
@@ -13,5 +15,6 @@ export const Home = () => {
 
       <TransactionsArea />
     </C.Container>
+    </TransactionsProvider>
   )
 }

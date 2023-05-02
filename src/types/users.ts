@@ -18,3 +18,10 @@ export interface IUser {
     loans: ILoan[];
     payments: IPayment[];
 }
+
+export interface ITransaction {
+    value: number;
+    date: Date;
+    userId: string;
+    type: string;
+}

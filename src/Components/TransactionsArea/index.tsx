@@ -1,33 +1,12 @@
+import { UseTransactionContext } from '../../contexts/transactionsContext'
 import { Users } from '../../data/data'
 import { TransactionItem } from '../TransactionItem'
 import * as C from './styles'
 
-export interface ITransaction {
-    value: number;
-    date: Date;
-    userId: string;
-    type: string;
-}
 
 export const TransactionsArea = () => {
 
-    const getAllTransactions = () => {
-        let AllTransactions: ITransaction[] = [];
-
-        Users.forEach(user => {
-            user.loans.forEach(loan => {
-                AllTransactions.push({...loan, userId: user.id})
-            })
-        })        
-        Users.forEach(user => {
-            user.payments.forEach(payment => {
-                AllTransactions.push({...payment, userId: user.id})
-            })
-        })      
-        
-       return AllTransactions;
-    }
-
+    const { getAllTransactions } = UseTransactionContext();
 
   return (
     <C.Container>
@@ -35,7 +14,7 @@ export const TransactionsArea = () => {
         <C.TransactionList>
            { 
             getAllTransactions().map((transaction,index) => {
-            const userName = Users.find(user => user.id === transaction.userId)
+                const userName = Users.find(user => user.id === transaction.userId)
                 if(index <= 4){
                     return <TransactionItem
                     key={transaction.userId} 
@@ -45,7 +24,7 @@ export const TransactionsArea = () => {
                 }
             }
             )
-           }
+        }
         </C.TransactionList>
     </C.Container>
   )
