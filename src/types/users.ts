@@ -3,12 +3,14 @@ interface ILoan {
     date: Date;
     userId: string;
     type: string;
+    id:string;
 }
 interface IPayment {
     value: number;
     date: Date;
     userId:string;
     type: string;
+    id:string;
 }
 
 export interface IUser {
@@ -24,4 +26,5 @@ export interface ITransaction {
     date: Date;
     userId: string;
     type: string;
+    id: string;
 }

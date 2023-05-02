@@ -1,4 +1,4 @@
-import { ITransaction } from '../TransactionsArea'
+import { ITransaction } from '../../types/users'
 import * as C from './styles'
 
 interface IProps {
