@@ -2,6 +2,7 @@ import { UseTransactionContext } from "../../contexts/transactionsContext";
 import { InfoItem } from "../InfoItem"
 import { useState, useMemo } from 'react'
 import { Container } from "./styles";
+import { Users } from "../../data/data";
 
 export const InfoArea = () => {
 
@@ -24,7 +25,7 @@ export const InfoArea = () => {
     
         setPayments(sumPayments)
         setLoans(sumLoans)
-    }, [])
+    }, [Users])
 
   return (
     <Container>

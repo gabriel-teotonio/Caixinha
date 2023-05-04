@@ -30,7 +30,6 @@ export const TransactionsProvider = ({children}: IChildren) => {
                 allTransactions.push({...payment, userId: user.id})
             })
         })      
-        console.log(allTransactions)
        return allTransactions;
     }
 
