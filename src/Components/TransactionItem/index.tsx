@@ -1,8 +1,8 @@
-import { ITransaction } from '../../types/users'
+import { IDefaultTransaction } from '../../types/users'
 import * as C from './styles'
 
 interface IProps {
-    transaction: ITransaction;
+    transaction: IDefaultTransaction;
     userName:string | undefined;
 }
 

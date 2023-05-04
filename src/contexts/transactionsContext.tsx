@@ -1,9 +1,9 @@
 import { createContext,useContext } from "react";
-import { ITransaction } from "../types/users";
+import { IDefaultTransaction } from "../types/users";
 import { Users } from "../data/data";
 
 interface ITransactionsContext{
-    getAllTransactions: () => ITransaction[];
+    getAllTransactions: () => IDefaultTransaction[];
 }
 
 const TransactionsContext = createContext<ITransactionsContext>({
@@ -18,7 +18,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
     const users = [...Users];
 
     const getAllTransactions = () => {
-        let allTransactions: ITransaction[] = [];
+        let allTransactions: IDefaultTransaction[] = [];
 
         users.forEach(user => {
             user.loans.forEach(loan => {
