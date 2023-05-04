@@ -1,5 +1,5 @@
 import { createContext,useContext } from "react";
-import { ITransaction, IUser } from "../types/users";
+import { ITransaction } from "../types/users";
 import { Users } from "../data/data";
 
 interface ITransactionsContext{
