@@ -1,6 +1,7 @@
 import { createContext,useContext } from "react";
 import { IDefaultTransaction } from "../types/users";
 import { Users } from "../data/data";
+import { sortTransactionsByDate } from "../helpers/transactionsHelp";
 
 interface ITransactionsContext{
     getAllTransactions: () => IDefaultTransaction[];
@@ -30,6 +31,10 @@ export const TransactionsProvider = ({children}: IChildren) => {
                 allTransactions.push({...payment, userId: user.id})
             })
         })      
+
+        sortTransactionsByDate(allTransactions)
+        
+        console.log(allTransactions)
        return allTransactions;
     }
 
