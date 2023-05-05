@@ -15,7 +15,7 @@ export const TransactionsArea = () => {
            { 
             getAllTransactions().map((transaction,index) => {
                 const userName = Users.find(user => user.id === transaction.userId)
-                if(index <= 4){
+                if(index <= 6){
                     return <TransactionItem
                     key={transaction.id} 
                     transaction={transaction}

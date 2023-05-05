@@ -6,10 +6,9 @@ export const Container = styled.div`
 `
 
 export const Main = styled.main`
-    flex: 1;
     padding: 1rem;
-    max-width: 895px;
-    margin: 0 auto;
+    margin-left: 20%;
+    flex: 1;
     min-height: 100%;
 `
 

@@ -4,9 +4,10 @@ import styled from "styled-components";
 
 export const Container = styled.nav`
     min-height: 100vh;
-    width: 250px;
+    width: 20%;
     background-color: ${props => props.theme.colors.darkBlue};
     color: white;
+    position: fixed;
 `
 export const AsideTitle = styled.h2`
     text-align: center;
