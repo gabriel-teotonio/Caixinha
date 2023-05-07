@@ -1,7 +1,7 @@
 import { UseTransactionContext } from "../../contexts/transactionsContext";
 import { InfoItem } from "../InfoItem"
 import { useState, useMemo } from 'react'
-import { Container } from "./styles";
+import { Container, Carrousel } from "./styles";
 import { Users } from "../../data/data";
 
 export const InfoArea = () => {
@@ -29,9 +29,11 @@ export const InfoArea = () => {
 
   return (
     <Container>
+      <Carrousel>
         <InfoItem title="Pagamentos" value={payments} />
         <InfoItem title="Empréstimos" value={loans}/>
         <InfoItem title="Total" value={payments - loans}/>
+      </Carrousel>
     </Container>
   )
 }

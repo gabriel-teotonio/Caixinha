@@ -9,6 +9,11 @@ export const Container = styled.div`
     flex: 1;
     border-radius:4px;
     box-shadow: ${props => props.theme.colors.shadowInfoItem};
+    scroll-snap-align: start;
+
+    @media (max-width:430px) {
+        width: 260px;
+    }
 `
 export const Title = styled.h4`
     font-size: ${props => props.theme.fontSizes.lg};
