@@ -10,17 +10,20 @@ export const Aside = () => {
         <C.ListNavigate>
             <C.ItemNavigate>
                 <C.NavLink to={"/home"}>
-                   <BsGrid1X2 size={20} /> Home
+                    <C.IconWrapper><BsGrid1X2 /></C.IconWrapper>
+                    Home
                 </C.NavLink>
             </C.ItemNavigate>
             <C.ItemNavigate>
                 <C.NavLink to={"/loans"}>
-                    <MdOutlinePayments size={20} /> Empréstimos
+                    <C.IconWrapper><MdOutlinePayments /></C.IconWrapper>
+                    Empréstimos
                 </C.NavLink>
             </C.ItemNavigate>
             <C.ItemNavigate>
                 <C.NavLink to={"/payments"}>
-                    <FiUsers size={20}/> Pagamentos
+                    <C.IconWrapper><FiUsers size={20}/></C.IconWrapper>
+                    Pagamentos
                 </C.NavLink>
             </C.ItemNavigate>
         </C.ListNavigate>

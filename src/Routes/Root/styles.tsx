@@ -6,14 +6,13 @@ export const Container = styled.div`
 `
 
 export const Main = styled.main`
+    padding: 1rem 2rem;
+    margin-left: 20%;
     flex: 1;
-    padding: 1rem;
-    max-width: 895px;
-    margin: 0 auto;
     min-height: 100%;
 `
 
 export const MainContent = styled.div`
-    height: auto;
-    margin-top: 2rem;
+    max-height: calc(100% - 49px);
+    margin-top: 1rem;
 `
