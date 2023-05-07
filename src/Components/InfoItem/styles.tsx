@@ -6,7 +6,7 @@ export const Container = styled.div`
     flex-direction: column;
     padding: 2rem;
     background-color: ${props => props.theme.colors.white};
-    width: 260px;
+    flex: 1;
     border-radius:4px;
     box-shadow: ${props => props.theme.colors.shadowInfoItem};
 `
