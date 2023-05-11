@@ -5,6 +5,7 @@ import { Container, Main, MainContent } from "./styles";
 import { Outlet } from 'react-router-dom';
 import { Aside } from "../../Components/Aside";
 import { HeaderMain } from "../../Components/HeaderMain";
+import { NavMobile } from "../../Components/NavMobile";
 
 function Root() {
 
@@ -19,7 +20,7 @@ function Root() {
           </MainContent>
         </Main>
 
-
+      <NavMobile />
       </ Container>
       <GlobalStyle />
     </ThemeProvider>
