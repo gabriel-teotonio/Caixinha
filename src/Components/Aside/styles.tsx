@@ -11,17 +11,30 @@ export const Container = styled.nav`
 
     @media (max-width: 430px) {
         bottom: 0;
-        min-height: 40vh;
+        min-height: 30%;
         height: auto;
         width: 100%;
+        border-radius: 1rem 1rem 0 0;
         display: none;
     }
 `
-export const AsideTitle = styled.h2`
-    text-align: center;
+
+export const AsideHeader = styled.header`
     border-bottom: #ffffff65 1px solid;
-    padding: .5rem 0;
+    text-align: center;
+    padding: .5rem 1rem;
+    button{
+        color: white;
+    }
+
+    @media (max-width: 430px) {
+        display: flex;
+        justify-content: space-between;
+    }
 `
+
+export const AsideTitle = styled.h2``
+
 export const ListNavigate = styled.ul`
     padding: 0 1rem;
     margin-top: 2rem;
