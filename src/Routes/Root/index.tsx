@@ -6,22 +6,27 @@ import { Outlet } from 'react-router-dom';
 import { Aside } from "../../Components/Aside";
 import { HeaderMain } from "../../Components/HeaderMain";
 import { NavMobile } from "../../Components/NavMobile";
+import { useAppContext } from "../../contexts/appContext";
 
 function Root() {
+  const { isMobileScreen } = useAppContext();
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Aside />
-        <Main>
-          <HeaderMain />
-          <MainContent className="content-main">
-              <Outlet />
-          </MainContent>
-        </Main>
+      
+        <Container>
+          <Aside />
+          <Main>
+            <HeaderMain />
+            <MainContent className="content-main">
+                <Outlet />
+            </MainContent>
+          </Main>
 
-      <NavMobile />
-      </ Container>
+        {
+          isMobileScreen && <NavMobile />
+        }
+        </ Container>
       <GlobalStyle />
     </ThemeProvider>
   )

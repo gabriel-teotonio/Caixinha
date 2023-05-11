@@ -1,16 +1,11 @@
-import { useEffect, useState } from 'react';
 import * as C from './styles';
 import { BsGrid1X2 } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
 import { MdOutlinePayments, MdClose } from 'react-icons/md';
+import { useAppContext } from '../../contexts/appContext';
 
 export const Aside = () => {
-    const [isMobileScreen, setIsMobileScreen] = useState(true)
-    // const [isMenuOpen, setIsMenuOpen] = useState(false)
-    
-    useEffect(() => {
-        setIsMobileScreen(window.innerWidth <= 430)
-    }, [])
+    const { isMobileScreen } = useAppContext();
 
   return (
     <C.Container>
