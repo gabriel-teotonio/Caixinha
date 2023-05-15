@@ -3,17 +3,19 @@ import { BsGrid1X2 } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
 import { MdOutlinePayments, MdClose } from 'react-icons/md';
 import { useAppContext } from '../../contexts/appContext';
+import { useModalContext } from '../../contexts/modalContext';
 
 export const Aside = () => {
     const { isMobileScreen } = useAppContext();
+    const {isOpen, closeModal} = useModalContext();
 
   return (
-    <C.Container>
+    <C.Container isOpen={isOpen}>
             {
                 isMobileScreen ? (
                     <C.AsideHeader>
                         <C.AsideTitle>menu</C.AsideTitle>
-                        <button>
+                        <button onClick={closeModal}>
                             <C.IconWrapper>
                                 <MdClose />
                             </C.IconWrapper>

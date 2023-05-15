@@ -7,6 +7,8 @@ import { Aside } from "../../Components/Aside";
 import { HeaderMain } from "../../Components/HeaderMain";
 import { NavMobile } from "../../Components/NavMobile";
 import { useAppContext } from "../../contexts/appContext";
+import { ModalContainer } from "../../Components/ModalContainer";
+import { ModalProvider } from "../../contexts/modalContext";
 
 function Root() {
   const { isMobileScreen } = useAppContext();
@@ -15,7 +17,9 @@ function Root() {
     <ThemeProvider theme={theme}>
       
         <Container>
-          <Aside />
+          {
+            !isMobileScreen && <Aside />
+          }
           <Main>
             <HeaderMain />
             <MainContent className="content-main">
@@ -24,7 +28,14 @@ function Root() {
           </Main>
 
         {
-          isMobileScreen && <NavMobile />
+          isMobileScreen && (
+            <>
+            <ModalProvider>
+              <NavMobile />
+              <ModalContainer />
+            </ModalProvider>
+            </>
+          ) 
         }
         </ Container>
       <GlobalStyle />

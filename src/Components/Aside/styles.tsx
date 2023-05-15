@@ -1,21 +1,28 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { IPropsModal } from "../../types/modal";
 
 
-export const Container = styled.nav`
+export const Container = styled.nav<IPropsModal>`
     min-height: 100vh;
     width: 20%;
     background-color: ${props => props.theme.colors.darkBlue};
     color: white;
     position: fixed;
+    transition: all .4s;
 
     @media (max-width: 430px) {
-        bottom: 0;
         min-height: 30%;
         height: auto;
         width: 100%;
         border-radius: 1rem 1rem 0 0;
-        display: none;
+        padding-bottom: 1rem;
+        ${({isOpen}) => !isOpen ? css`
+        bottom: -15rem;
+    `: css`
+        bottom: 0;
+    `}
+        /* display: none; */
     }
 `
 
