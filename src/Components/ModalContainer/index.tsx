@@ -1,5 +1,4 @@
 import { useModalContext } from "../../contexts/modalContext"
-import { Aside } from "../Aside"
 import { Container } from "./styles"
 
 export const ModalContainer = () => {

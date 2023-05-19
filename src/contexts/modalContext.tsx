@@ -1,5 +1,4 @@
 import { useContext, useState, createContext, ReactNode } from "react";
-import { Aside } from "../Components/Aside";
 
 interface IModalContext {
     isOpen: boolean;
@@ -14,7 +13,7 @@ interface IChildren {
 
 export const ModalContext = createContext<IModalContext>({
     isOpen: false,
-    openModal: (component: ReactNode) => {},
+    openModal: () => {},
     closeModal: () => {},
     modalComponent: null,
 })
