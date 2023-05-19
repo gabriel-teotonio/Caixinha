@@ -1,9 +1,11 @@
-import { useContext, useState, createContext } from "react";
+import { useContext, useState, createContext, ReactNode } from "react";
+import { Aside } from "../Components/Aside";
 
 interface IModalContext {
     isOpen: boolean;
-    openModal: () => void;
+    openModal: (component: ReactNode) => void;
     closeModal: () => void;
+    modalComponent: ReactNode | null;
 }
 
 interface IChildren {
@@ -12,18 +14,24 @@ interface IChildren {
 
 export const ModalContext = createContext<IModalContext>({
     isOpen: false,
-    openModal: () => {},
+    openModal: (component: ReactNode) => {},
     closeModal: () => {},
+    modalComponent: null,
 })
 
 export const ModalProvider = ({children}:IChildren) => {
     const [isOpen, setIsOpen] = useState(false)
-    
+    const [modalComponent, setModalComponent] = useState<ReactNode | null>(null)
+
     const closeModal = () => setIsOpen(false)
-    const openModal = () => setIsOpen(true)
+    const openModal = (component: ReactNode) => {
+        setIsOpen(true)
+        setModalComponent(component)
+    }
+        
     
     return(
-        <ModalContext.Provider value={{isOpen,openModal, closeModal}}>
+        <ModalContext.Provider value={{isOpen,openModal, closeModal, modalComponent}}>
             {children}
         </ModalContext.Provider>
     )

@@ -3,7 +3,7 @@ import { Aside } from "../Aside"
 import { Container } from "./styles"
 
 export const ModalContainer = () => {
-    const {isOpen, closeModal} = useModalContext()
+    const {isOpen, closeModal, modalComponent} = useModalContext()
 
     const handleCloseModal = (event: React.MouseEvent) => {
       if(event.target === event.currentTarget){
@@ -12,7 +12,7 @@ export const ModalContainer = () => {
   }
   return (
     <Container onClick={handleCloseModal} isOpen={isOpen}>
-        <Aside/> 
+        {modalComponent}
     </Container>
   )
 }

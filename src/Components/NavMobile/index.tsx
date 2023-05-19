@@ -3,6 +3,7 @@ import * as C from "./styles";
 import { BsFillBoxSeamFill, BsGrid3X3GapFill } from "react-icons/bs";
 import { MdFormatListBulletedAdd } from "react-icons/md";
 import { useModalContext } from "../../contexts/modalContext";
+import { Aside } from "../Aside";
 
 export const NavMobile = () => {
 
@@ -10,7 +11,7 @@ export const NavMobile = () => {
 
   return (
     <C.Nav>
-        <button onClick={openModal}>
+        <button onClick={() => openModal(<Aside/>)}>
             <C.IconWrapper><BsGrid3X3GapFill /></C.IconWrapper>
         </button>
         <C.IconWrapper>
