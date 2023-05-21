@@ -12,7 +12,17 @@ export const Container = styled.div`
     padding: 1rem;
     background-color: ${props => props.theme.colors.darkBlue};
     border-radius: .5rem;
-    `
+    color: white;
+
+    header{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        button{
+            color: white;
+        }
+    }
+`
 
 export const ListButtons = styled.div`
     display: flex;
