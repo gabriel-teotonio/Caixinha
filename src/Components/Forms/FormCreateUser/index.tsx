@@ -1,5 +1,14 @@
 import * as C from './styles';
 
+const PhoneInput = () => {
+    return (
+      <C.InputMask
+      mask="(99) 99999-9999"
+      placeholder='(91) 98283-8485'
+      />
+    )
+}
+
 export const FormCreateUser = () => {
   return (
     <C.Container>
@@ -9,7 +18,7 @@ export const FormCreateUser = () => {
         </C.FieldBox>
         <C.FieldBox>
             <C.Label>Número de telefone</C.Label>
-            <C.Input type='text' placeholder='91984858687'/>
+            <PhoneInput />
         </C.FieldBox>
         <C.ButtonSubmit type='submit'>Criar</C.ButtonSubmit>
     </C.Container>
