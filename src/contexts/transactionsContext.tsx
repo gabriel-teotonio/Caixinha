@@ -1,23 +1,29 @@
 import { createContext,useContext } from "react";
 import { IDefaultTransaction } from "../types/users";
-import { Users } from "../data/data";
+import { Users, generateRandomId } from "../data/data";
 import { sortTransactionsByDate } from "../helpers/transactionsHelp";
 import { IUser } from "../types/users";
 
+interface IFormData {
+    name: string;
+    phone:string;
+}
 interface ITransactionsContext{
     getAllTransactions: () => IDefaultTransaction[];
+    addNewUser: (formData: IFormData) => void;
 }
 
 const TransactionsContext = createContext<ITransactionsContext>({
     getAllTransactions: () => [],
+    addNewUser: () => {}
 })
 
 interface IChildren {
     children:React.ReactNode;
 }
+const users = [...Users];
 
 export const TransactionsProvider = ({children}: IChildren) => {
-    const users = [...Users];
 
     const getAllTransactions = ():IDefaultTransaction[] => {
         const allTransactions:IDefaultTransaction[] = users.reduce(
@@ -34,9 +40,22 @@ export const TransactionsProvider = ({children}: IChildren) => {
        return allTransactions;
     }
 
+    const addNewUser = (formData: IFormData) => {
+        const newUserList = [...users]
+        newUserList.push({
+            name: formData.name,
+            phone: formData.phone,
+            id: generateRandomId(),
+            loans: [],
+            payments: []
+        })
+
+        console.log(newUserList)
+    }
+
     return (
         <TransactionsContext.Provider value={{
-            getAllTransactions
+            getAllTransactions, addNewUser
         }}>
             {children}
         </TransactionsContext.Provider>

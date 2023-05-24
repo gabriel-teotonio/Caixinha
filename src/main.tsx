@@ -5,6 +5,7 @@ import Root from './Routes/Root'
 import { ErrorPage } from './Routes/ErrorPage/styles'
 import { Home } from './Routes/Home'
 import { AppProvider } from './contexts/appContext'
+import { TransactionsProvider } from './contexts/transactionsContext'
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <AppProvider>
-      <RouterProvider router={router} />
+      <TransactionsProvider>
+        <RouterProvider router={router} />
+      </TransactionsProvider>
     </AppProvider>
   </React.StrictMode>,
 )
