@@ -17,6 +17,7 @@ export const Container = styled.div`
     header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 1rem;
         button{
             color: white;

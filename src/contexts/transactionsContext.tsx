@@ -41,7 +41,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
     }
 
     const addNewUser = (formData: IFormData) => {
-        const newUserList = [...users]
+        const newUserList = users
         newUserList.push({
             name: formData.name,
             phone: formData.phone,

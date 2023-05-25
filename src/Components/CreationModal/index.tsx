@@ -1,6 +1,6 @@
 import { ButtonAction, Container, IconWrapper, ListButtons } from "./styles";
 import {BiTransfer} from "react-icons/bi"
-import {AiOutlineUserAdd} from "react-icons/ai"
+import {AiOutlineUserAdd, AiOutlineClose} from "react-icons/ai"
 import { useModalContext } from "../../contexts/modalContext";
 import { FormCreateUser } from "../Forms/FormCreateUser";
 
@@ -14,7 +14,11 @@ export const CreationModal = () => {
         {activeForm ? (
             <button onClick={() => showActiveForm(null)}>Voltar</button>
           ):(
-            <button onClick={closeModal}>X</button>
+            <button onClick={closeModal}>
+              <IconWrapper>
+               <AiOutlineClose />
+              </IconWrapper>
+              </button>
         )
         }
       </header>

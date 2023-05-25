@@ -10,7 +10,7 @@ export const TransactionsArea = () => {
 
   return (
     <C.Container>
-        <C.Title>Últimos pagamentos</C.Title>
+        <C.Title>Últimas Transações</C.Title>
         <C.TransactionList>
            { 
             getAllTransactions().map((transaction,index) => {
