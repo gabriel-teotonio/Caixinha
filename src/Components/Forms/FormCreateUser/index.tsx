@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import * as C from './styles';
 import { UseTransactionContext } from '../../../contexts/transactionsContext';
+import { inputMaskPhone } from '../../../helpers/maskInputs';
 
 export const FormCreateUser = () => {
   const { addNewUser } = UseTransactionContext()
@@ -44,7 +45,7 @@ export const FormCreateUser = () => {
             type='text' 
             name='phone'
             placeholder='(91) 96666-7777'
-            value={formData.phone}
+            value={inputMaskPhone(formData.phone)}
             onChange={handleChange}
             />
         </C.FieldBox>
