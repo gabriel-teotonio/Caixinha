@@ -5,13 +5,18 @@ import { useModalContext } from "../../contexts/modalContext";
 import { FormCreateUser } from "../Forms/FormCreateUser";
 
 export const CreationModal = () => {
-  const { activeForm,showActiveForm } = useModalContext()
-
+  const { activeForm,showActiveForm, closeModal } = useModalContext()
+   
   return (
     <Container>
       <header>
-        <h4>Escolha uma ação</h4>
-        <button onClick={() => showActiveForm(null)}>voltar</button>
+        <h4>{activeForm ? "Modal": "Escolha uma ação"}</h4>
+        {activeForm ? (
+            <button onClick={() => showActiveForm(null)}>Voltar</button>
+          ):(
+            <button onClick={closeModal}>X</button>
+        )
+        }
       </header>
     {!activeForm && (
         <ListButtons>
