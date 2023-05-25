@@ -29,7 +29,7 @@ export const Aside = () => {
             }
         <C.ListNavigate>
             <C.ItemNavigate>
-                <C.NavLink to={"/home"}>
+                <C.NavLink to={"/"}>
                     <C.IconWrapper><BsGrid1X2 /></C.IconWrapper>
                     Home
                 </C.NavLink>
