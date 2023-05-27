@@ -2,6 +2,8 @@ import { useState } from 'react';
 import * as C from './styles';
 import { UseTransactionContext } from '../../../contexts/transactionsContext';
 import { inputMaskPhone } from '../../../helpers/maskInputs';
+import { toast } from 'react-toastify'
+import { toastError } from '../../../helpers/toastfyHelp';
 
 export const FormCreateUser = () => {
   const { addNewUser } = UseTransactionContext()
@@ -12,12 +14,18 @@ export const FormCreateUser = () => {
 
   const handleSubmitUserForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if(formData.name === "") return console.log("preencha o campo nome")
-    if(formData.phone === "") return console.log("preencha o campo telefone")
+    let errorNames:String[] = []
+    if(formData.name === "")  errorNames.push("Nome")
+    if(formData.phone === "") errorNames.push("Telefone")
     
-    addNewUser(formData)
-    setFormData({name:"", phone: ""})
-  }
+    if(errorNames.length === 0){
+      addNewUser(formData)
+      setFormData({name:"", phone: ""})
+      return
+    }
+      toastError(`preencha os campos ${errorNames}`)
+    }
+    
 
   const handleChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target

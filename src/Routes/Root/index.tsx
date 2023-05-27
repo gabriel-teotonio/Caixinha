@@ -1,5 +1,3 @@
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../theme";
 import { GlobalStyle } from "../../GlobalStyles";
 import { Container, Main, MainContent } from "./styles";
 import { Outlet } from 'react-router-dom';
@@ -9,14 +7,15 @@ import { NavMobile } from "../../Components/NavMobile";
 import { useAppContext } from "../../contexts/appContext";
 import { ModalContainer } from "../../Components/ModalContainer";
 import { ModalProvider } from "../../contexts/modalContext";
+import 'react-toastify/ReactToastify.css';
+import { Slide, ToastContainer } from 'react-toastify'
 
 function Root() {
   const { isMobileScreen } = useAppContext();
 
   return (
-    <ThemeProvider theme={theme}>
-      
-        <Container>
+    <>
+    <Container>
           {
             !isMobileScreen && <Aside />
           }
@@ -37,9 +36,22 @@ function Root() {
             </>
           ) 
         }
+        <ToastContainer 
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Slide}
+        />
         </ Container>
       <GlobalStyle />
-    </ThemeProvider>
+      </>
   )
 }
 

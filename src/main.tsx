@@ -6,6 +6,8 @@ import { ErrorPage } from './Routes/ErrorPage/styles'
 import { Home } from './Routes/Home'
 import { AppProvider } from './contexts/appContext'
 import { TransactionsProvider } from './contexts/transactionsContext'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './theme'
 
 const router = createBrowserRouter([
   {
@@ -25,9 +27,11 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AppProvider>
+   < AppProvider>
       <TransactionsProvider>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </TransactionsProvider>
     </AppProvider>
   </React.StrictMode>,

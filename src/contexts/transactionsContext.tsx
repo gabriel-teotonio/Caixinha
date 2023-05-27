@@ -3,6 +3,7 @@ import { IDefaultTransaction } from "../types/users";
 import { Users, generateRandomId } from "../data/data";
 import { sortTransactionsByDate } from "../helpers/transactionsHelp";
 import { IUser } from "../types/users";
+import { toastSuccess } from "../helpers/toastfyHelp";
 
 interface IFormData {
     name: string;
@@ -40,6 +41,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
        return allTransactions;
     }
 
+    
     const addNewUser = (formData: IFormData) => {
         const newUserList = users
         newUserList.push({
@@ -49,7 +51,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
             loans: [],
             payments: []
         })
-
+        toastSuccess(`Usuário ${formData.name} criado com sucesso!`)
         console.log(newUserList)
     }
 
