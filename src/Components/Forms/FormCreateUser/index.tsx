@@ -2,7 +2,6 @@ import { useState } from 'react';
 import * as C from './styles';
 import { UseTransactionContext } from '../../../contexts/transactionsContext';
 import { inputMaskPhone } from '../../../helpers/maskInputs';
-import { toast } from 'react-toastify'
 import { toastError } from '../../../helpers/toastfyHelp';
 
 export const FormCreateUser = () => {
