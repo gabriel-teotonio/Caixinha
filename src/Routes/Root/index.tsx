@@ -13,9 +13,10 @@ import { Slide, ToastContainer } from 'react-toastify'
 function Root() {
   const { isMobileScreen } = useAppContext();
 
-  return (
-    <>
-    <Container>
+return (
+  <>
+    <ModalProvider>
+      <Container>
           {
             !isMobileScreen && <Aside />
           }
@@ -26,30 +27,29 @@ function Root() {
             </MainContent>
           </Main>
 
-        {
-          isMobileScreen && (
-            <>
-            <ModalProvider>
-              <NavMobile />
-              <ModalContainer />
-            </ModalProvider>
-            </>
-          ) 
-        }
-        <ToastContainer 
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="colored"
-        transition={Slide}
-        />
-        </ Container>
+          {
+            isMobileScreen && (
+              <>
+                <NavMobile />
+              </>
+            ) 
+          }
+          <ModalContainer />
+          <ToastContainer 
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          transition={Slide}
+          />
+      </ Container>
+    </ModalProvider>
       <GlobalStyle />
       </>
   )

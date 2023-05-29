@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     height: auto;
     min-height: 150px;
+    max-width: 500px;
     width: 90%;
     position: absolute;
     top: 50%;
@@ -49,6 +50,10 @@ export const ButtonAction = styled.button`
     justify-content: center;
     gap: .5rem;
     font-size: ${props => props.theme.fontSizes.md};
+
+    &:hover{
+        filter: brightness(.9);
+    }
 `
 
 export const IconWrapper = styled.div`

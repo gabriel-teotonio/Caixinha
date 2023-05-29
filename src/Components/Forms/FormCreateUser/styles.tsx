@@ -43,4 +43,8 @@ export const ButtonSubmit = styled.button`
     font-size: ${props => props.theme.fontSizes.md};
     width: 100%;
     margin-top: 2rem;
+
+    &:hover{
+        filter: brightness(.9);
+    }
 `
