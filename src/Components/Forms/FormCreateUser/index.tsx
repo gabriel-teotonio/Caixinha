@@ -3,6 +3,7 @@ import * as C from './styles';
 import { UseTransactionContext } from '../../../contexts/transactionsContext';
 import { inputMaskPhone } from '../../../helpers/maskInputs';
 import { toastError } from '../../../helpers/toastfyHelp';
+import { ButtonSubmit } from '../../Buttons/ButtonSubmit';
 
 export const FormCreateUser = () => {
   const { addNewUser } = UseTransactionContext()
@@ -56,12 +57,10 @@ export const FormCreateUser = () => {
             onChange={handleChange}
             />
         </C.FieldBox>
-        <C.ButtonSubmit
-        type='submit'
+        <ButtonSubmit 
+        title='Criar novo usuário'
         onClick={handleSubmitUserForm}
-        >
-        Criar
-         </C.ButtonSubmit>
+        />
     </C.Container>
   )
 }

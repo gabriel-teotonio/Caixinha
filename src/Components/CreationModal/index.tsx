@@ -3,6 +3,7 @@ import {BiTransfer} from "react-icons/bi"
 import {AiOutlineUserAdd, AiOutlineClose} from "react-icons/ai"
 import { useModalContext } from "../../contexts/modalContext";
 import { FormCreateUser } from "../Forms/FormCreateUser";
+import { FormCreateTransaction } from "../Forms/FormCreateTransaction";
 
 export const CreationModal = () => {
   const { activeForm,showActiveForm, closeModal } = useModalContext()
@@ -27,7 +28,7 @@ export const CreationModal = () => {
             <ButtonAction onClick={() => showActiveForm(<FormCreateUser/>)}>
                 <IconWrapper><AiOutlineUserAdd/></IconWrapper> Criar novo usuário
             </ButtonAction>
-            <ButtonAction onClick={() => showActiveForm(<div>Nova Transação</div>)}>
+            <ButtonAction onClick={() => showActiveForm(<FormCreateTransaction />)}>
                 <IconWrapper><BiTransfer/></IconWrapper> Nova transação
             </ButtonAction>
         </ListButtons>
