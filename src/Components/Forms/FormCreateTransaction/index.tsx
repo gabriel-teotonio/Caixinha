@@ -1,15 +1,20 @@
 import {useState} from 'react';
 import { FormField } from '../FormField';
 import { ButtonSubmit } from '../../Buttons/ButtonSubmit';
-import { SelectField } from '../SelectField';
+import { UsersSelectField } from '../SelectField';
 
 export const FormCreateTransaction = () => {
+  const [selectedUser, setSelectedUser] = useState<string>("")
   const [formData, setFormData] = useState({
     user: "",
     typeTransaction: "",
     value:0,
     date: '',
     })
+
+    const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      setSelectedUser(event.target.value)
+    }
 
     const handleChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = event.target
@@ -21,9 +26,24 @@ export const FormCreateTransaction = () => {
     
   return (
     <form>
-      <SelectField title='Escolha um usuário'/>
-      <SelectField title='Tipo de transação'/>
+      <UsersSelectField 
+      selectedUser={selectedUser}
+      onSelectedChange={handleSelectedChange}
+      />
         
+      {/* <div>
+      <label>Tipo de transação</label>
+      <label htmlFor="">
+      <input type="radio" />  
+      Pagamento
+      </label>
+      <label htmlFor="">
+      <input type="radio" />  
+      Emprestimo
+      </label>
+
+      </div> */}
+
       <FormField 
       title='Qual o valor da transação'
       type='number'

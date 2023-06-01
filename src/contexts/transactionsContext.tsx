@@ -11,11 +11,13 @@ interface IFormData {
 }
 interface ITransactionsContext{
     getAllTransactions: () => IDefaultTransaction[];
+    getAllUsers: () => IUser[];
     addNewUser: (formData: IFormData) => void;
 }
 
 const TransactionsContext = createContext<ITransactionsContext>({
     getAllTransactions: () => [],
+    getAllUsers: () => [],
     addNewUser: () => {}
 })
 
@@ -41,7 +43,12 @@ export const TransactionsProvider = ({children}: IChildren) => {
        return allTransactions;
     }
 
-    
+    const getAllUsers = ():IUser[] => {
+        const allUsers: IUser[] = users.map((user) => user)
+
+        return allUsers;
+    }
+
     const addNewUser = (formData: IFormData) => {
         const newUserList = users
         newUserList.push({
@@ -57,7 +64,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
 
     return (
         <TransactionsContext.Provider value={{
-            getAllTransactions, addNewUser
+            getAllTransactions, addNewUser,getAllUsers
         }}>
             {children}
         </TransactionsContext.Provider>
