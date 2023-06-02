@@ -14,16 +14,16 @@ export const FormCreateUser = () => {
 
   const handleSubmitUserForm = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    let errorNames:String[] = []
-    if(formData.name === "")  errorNames.push("Nome")
-    if(formData.phone === "") errorNames.push("Telefone")
+    let errors:String[] = []
+    if(formData.name === "")  errors.push("Nome")
+    if(formData.phone === "") errors.push("Telefone")
     
-    if(errorNames.length === 0){
+    if(errors.length === 0){
       addNewUser(formData)
       setFormData({name:"", phone: ""})
       return
     }
-      toastError(`preencha os campos ${errorNames}`)
+      toastError(`preencha os campos ${errors}`)
     }
     
 

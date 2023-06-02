@@ -1,10 +1,12 @@
 import {useState} from 'react';
 import { FormField } from '../FormField';
 import { ButtonSubmit } from '../../Buttons/ButtonSubmit';
-import { UsersSelectField } from '../SelectField';
+import { UsersSelectField } from '../UsersSelectField';
+import { TypesSelectField } from '../TypesSelectField';
+import { toastError } from '../../../helpers/toastfyHelp';
 
 export const FormCreateTransaction = () => {
-  const [selectedUser, setSelectedUser] = useState<string>("")
+  
   const [formData, setFormData] = useState({
     user: "",
     typeTransaction: "",
@@ -12,37 +14,41 @@ export const FormCreateTransaction = () => {
     date: '',
     })
 
-    const handleSelectedChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      setSelectedUser(event.target.value)
-    }
-
-    const handleChange = (event:  React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event:  React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
       const { name, value } = event.target
       setFormData((prevFormData) => ({
         ...prevFormData,
         [name]: value
       }))
     }
-    
+
+    const handleSubmitUserForm = (event: React.MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
+      let errors:String[] = []
+      if(formData.user === "")  errors.push("usuário")
+      if(formData.typeTransaction === "") errors.push("Tipo de transação")
+      if(formData.value <= 0) errors.push("Valor da transação")
+      if(formData.date === "") errors.push("Data")
+      
+      if(errors.length === 0){
+
+        setFormData({user:"",typeTransaction: "",value:0,date:""})
+        return
+      }
+        toastError(`preencha os campos ${errors}`)
+      }
   return (
     <form>
       <UsersSelectField 
-      selectedUser={selectedUser}
-      onSelectedChange={handleSelectedChange}
+      onChange={handleChange}
+      value={formData.user}
+      name='user'
       />
-        
-      {/* <div>
-      <label>Tipo de transação</label>
-      <label htmlFor="">
-      <input type="radio" />  
-      Pagamento
-      </label>
-      <label htmlFor="">
-      <input type="radio" />  
-      Emprestimo
-      </label>
-
-      </div> */}
+      <TypesSelectField 
+      onChange={handleChange}
+      value={formData.typeTransaction}
+      name='typeTransaction'
+      />
 
       <FormField 
       title='Qual o valor da transação'
@@ -60,6 +66,7 @@ export const FormCreateTransaction = () => {
       />
       <ButtonSubmit 
       title='Adicionar Transação'
+      onClick={handleSubmitUserForm}
       />
     </form>    
   )
