@@ -1,6 +1,6 @@
 export interface IDefaultTransaction {
     value: number;
-    date: Date;
+    date: string;
     userId:string;
     type: string;
     id:string;

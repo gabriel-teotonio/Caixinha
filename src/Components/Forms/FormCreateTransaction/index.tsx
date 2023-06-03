@@ -4,9 +4,10 @@ import { ButtonSubmit } from '../../Buttons/ButtonSubmit';
 import { UsersSelectField } from '../UsersSelectField';
 import { TypesSelectField } from '../TypesSelectField';
 import { toastError } from '../../../helpers/toastfyHelp';
+import { UseTransactionContext } from '../../../contexts/transactionsContext';
 
 export const FormCreateTransaction = () => {
-  
+  const {createNewTransaction} = UseTransactionContext()
   const [formData, setFormData] = useState({
     user: "",
     typeTransaction: "",
@@ -31,7 +32,7 @@ export const FormCreateTransaction = () => {
       if(formData.date === "") errors.push("Data")
       
       if(errors.length === 0){
-
+        createNewTransaction(formData)
         setFormData({user:"",typeTransaction: "",value:0,date:""})
         return
       }

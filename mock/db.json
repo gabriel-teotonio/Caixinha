@@ -1,0 +1,15 @@
+{
+"users": [
+   {
+      "name": "Rajesh",
+      "phone": "91984479773",
+      "id": "23SDRF-34FT56"
+}  
+],
+"transactions": [
+    {"value": 360, "date": "2023-04-14T00:00:00.000Z", "userId":"23SDRF-34FT56", "type":"loan","id": "348SJ-W3I4N"},
+    {"value": 20, "date": "2023-04-11T00:00:00.000Z", "userId":"23SDRF-34FT56","type":"loan", "id":"23EKS-SDNS3R"},
+    {"value": 400, "date": "2023-04-24T00:00:00.000Z","userId":"23SDRF-34FT56","type":"payment", "id":"284BE3-SMCN9"},
+    {"value": 200, "date": "2023-04-16T00:00:00.000Z","userId":"23SDRF-34FT56","type":"payment","id":"1GY3B-NDU334"}
+]
+} 
