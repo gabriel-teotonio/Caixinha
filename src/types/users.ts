@@ -10,6 +10,4 @@ export interface IUser {
     name: string;
     phone: string;
     id: string;
-    loans: IDefaultTransaction[];
-    payments: IDefaultTransaction[];
 }

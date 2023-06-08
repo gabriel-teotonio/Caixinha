@@ -1,15 +1,70 @@
 {
-"users": [
-   {
+  "users": [
+    {
       "name": "Rajesh",
       "phone": "91984479773",
       "id": "23SDRF-34FT56"
-}  
-],
-"transactions": [
-    {"value": 360, "date": "2023-04-14T00:00:00.000Z", "userId":"23SDRF-34FT56", "type":"loan","id": "348SJ-W3I4N"},
-    {"value": 20, "date": "2023-04-11T00:00:00.000Z", "userId":"23SDRF-34FT56","type":"loan", "id":"23EKS-SDNS3R"},
-    {"value": 400, "date": "2023-04-24T00:00:00.000Z","userId":"23SDRF-34FT56","type":"payment", "id":"284BE3-SMCN9"},
-    {"value": 200, "date": "2023-04-16T00:00:00.000Z","userId":"23SDRF-34FT56","type":"payment","id":"1GY3B-NDU334"}
-]
-} 
+    },
+    {
+      "name": "Gabriel",
+      "phone": "91984479773",
+      "id": "E#$F-SD34S"
+    },
+    {
+      "name": "Gabriel Teotonio",
+      "phone": "(91) 9844-79773",
+      "id": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4"
+    }
+  ],
+  "transactions": [
+    {
+      "value": 360,
+      "date": "2023-04-14T00:00:00.000Z",
+      "userId": "E#$F-SD34S",
+      "type": "loan",
+      "id": "348SJ-W3I4N"
+    },
+    {
+      "value": 20,
+      "date": "2023-04-11T00:00:00.000Z",
+      "userId": "23SDRF-34FT56",
+      "type": "loan",
+      "id": "23EKS-SDNS3R"
+    },
+    {
+      "value": 400,
+      "date": "2023-04-24T00:00:00.000Z",
+      "userId": "E#$F-SD34S",
+      "type": "payment",
+      "id": "284BE3-SMCN9"
+    },
+    {
+      "value": 200,
+      "date": "2023-04-16T00:00:00.000Z",
+      "userId": "23SDRF-34FT56",
+      "type": "payment",
+      "id": "1GY3B-NDU334"
+    },
+    {
+      "userId": "23SDRF-34FT56",
+      "type": "payment",
+      "id": "00008529-7feb-4573-9c2e-e10d3934031c",
+      "value": 80,
+      "date": "2023-07-08T03:00:00.000Z"
+    },
+    {
+      "userId": "23SDRF-34FT56",
+      "type": "payment",
+      "id": "ea2ea358-17a1-46d6-8d97-b9c145101419",
+      "value": 1500,
+      "date": "2023-07-08T03:00:00.000Z"
+    },
+    {
+      "userId": "E#$F-SD34S",
+      "type": "loan",
+      "id": "e0518c98-cc44-4189-ad7d-70802afb18f0",
+      "value": 500,
+      "date": "2023-07-08T03:00:00.000Z"
+    }
+  ]
+}

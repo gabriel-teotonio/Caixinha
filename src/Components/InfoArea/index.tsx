@@ -1,28 +1,19 @@
 import { UseTransactionContext } from "../../contexts/transactionsContext";
 import { InfoItem } from "../InfoItem"
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Container, Carrousel } from "./styles";
-import { IDefaultTransaction } from "../../types/users";
 
 export const InfoArea = () => {
 
-    const { getAllTransactions } = UseTransactionContext();
-    const [transactions, setTransactions] = useState<IDefaultTransaction[]>([])
+    const { AllTransactions } = UseTransactionContext();
     const [payments, setPayments] = useState(0)
     const [loans, setLoans] = useState(0)
-    useEffect(() => {
-      const fetchData = async () => {
-        const data = await getAllTransactions();
-        setTransactions(data)
-      }
-      fetchData()
-    },[getAllTransactions])
 
     useMemo(() => {
         let sumPayments = 0;
         let sumLoans = 0;
     
-        transactions.map(item => {
+        AllTransactions.forEach(item => {
           if(item.type === 'payment'){
             sumPayments += item.value
           }
@@ -33,7 +24,7 @@ export const InfoArea = () => {
     
         setPayments(sumPayments)
         setLoans(sumLoans)
-    }, [transactions])
+    }, [AllTransactions])
 
   return (
     <Container>

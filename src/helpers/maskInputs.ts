@@ -9,3 +9,8 @@ export const inputMaskPhone = (phone: string) => {
     }
     return phone;
 }
+
+export const inputMaskValue = (value: string) => {
+    const numericValue = value.replace(/[^0-9]/g, '')
+    return numericValue;
+}

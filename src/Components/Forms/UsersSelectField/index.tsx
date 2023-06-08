@@ -8,16 +8,14 @@ interface IProps {
 }
 
 export const UsersSelectField = ({ onChange,value,name }:IProps) => {
-  const { getAllUsers } = UseTransactionContext()
-  const allUsers = getAllUsers()
+  const { AllUsers } = UseTransactionContext()
 
-  
   return (
     <FieldBox>
       <Label>Selecione um usuário</Label>
       <Select name={name} value={value} onChange={onChange}>
         <Option value={""}>Selecionar</Option>
-        {allUsers.map((user) => (
+        {AllUsers.map((user) => (
           <Option key={user.id} value={user.id}>{user.name}</Option>
         ))}
       </Select>

@@ -27,7 +27,7 @@ export const TransactionItem = ({transaction,userName}: IProps) => {
                 <C.TransactionsDate>{formattedNewDate(transaction.date)}</C.TransactionsDate>
             </C.SubInfos>
         </C.ItemInfos>
-        <C.TransactionValue>R${transaction.value.toFixed(2)}</C.TransactionValue>
+        <C.TransactionValue>R${transaction.value}</C.TransactionValue>
     </C.Container>
   )
 }

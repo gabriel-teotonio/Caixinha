@@ -6,7 +6,7 @@ import { toastError } from '../../../helpers/toastfyHelp';
 import { ButtonSubmit } from '../../Buttons/ButtonSubmit';
 
 export const FormCreateUser = () => {
-  const { addNewUser } = UseTransactionContext()
+  const { CreateNewUser } = UseTransactionContext()
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,7 +19,7 @@ export const FormCreateUser = () => {
     if(formData.phone === "") errors.push("Telefone")
     
     if(errors.length === 0){
-      addNewUser(formData)
+      CreateNewUser(formData)
       setFormData({name:"", phone: ""})
       return
     }
