@@ -2,7 +2,8 @@ import { createContext,useContext, useEffect, useState } from "react";
 import { IDefaultTransaction } from "../types/users";
 import { generateRandomId } from "../data/data";
 import { IUser } from "../types/users";
-import { toastSuccess } from "../helpers/toastfyHelp";
+import { toastError, toastSuccess } from "../helpers/toastfyHelp";
+import { ajustedDate } from "../helpers/dateFormatHelper";
 
 interface IUserFormData {
     name: string;
@@ -19,7 +20,6 @@ interface ITransactionsContext{
     AllUsers: IUser[];
     CreateNewUser: (user: IUserFormData) => void;
     CreateNewTransaction: (transaction: ITransactionFormData) => void;
-    GetUserName: (userId:string) => Promise<string>;
 }
 
 const TransactionsContext = createContext<ITransactionsContext>({
@@ -27,7 +27,6 @@ const TransactionsContext = createContext<ITransactionsContext>({
     AllUsers: [],
     CreateNewUser: () => {},
     CreateNewTransaction: () => {},
-    GetUserName: async () => '',
 })
 
 interface IChildren {
@@ -55,13 +54,6 @@ export const TransactionsProvider = ({children}: IChildren) => {
         const allUsers:IUser[] = await response.json();
         setAllUsers(allUsers)
     }
-    const GetUserName = async (userId: string): Promise<string> => {
-        const response = await fetch('http://localhost:3000/users');
-        const users:IUser[] = await response.json();
-        const user = users.find(user => user.id === userId);
-
-        return user ? user.name : '';
-    }
 
     const CreateNewUser = async (user: IUserFormData) => {
         const newUser = 
@@ -83,8 +75,9 @@ export const TransactionsProvider = ({children}: IChildren) => {
                 getAllUsers()
                 console.log('Usuário criado com sucesso!');
                 toastSuccess(`Usuário ${user.name} criado com sucesso!`)
-              } else {
+            } else {
                 console.log('Erro ao criar usuário');
+                toastError(`Erro ao criar usuário`);
               }
         } catch (error) {
             console.error("erro na requisição",error)
@@ -92,11 +85,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
 
     }
 
-    const ajustedDate = (date:string) => {
-        let [year,month,day] = date.split('-');
-        return new Date(parseInt(year),parseInt(month), parseInt(day));
-    }
-
+    
     const CreateNewTransaction = async (transaction: ITransactionFormData) => {
         const newTransaction = {
             userId: transaction.user,
@@ -106,28 +95,29 @@ export const TransactionsProvider = ({children}: IChildren) => {
             date: ajustedDate(transaction.date),
         }
 
-        try {
-            const response = await fetch('http://localhost:3000/transactions',{
-                method:'POST',
-                headers:{
-                    'Content-Type': 'application/json'
-                },
-                body:JSON.stringify(newTransaction)
-            })
-            if(response.ok){
-                console.log('transação criada com sucesso!')
-                getAllTransactions();
-            }else{
-                console.log("erro ao criar a transação")
-            }
-        } catch (error) {
-            console.error("erro na requisição", error)
-        }
+        console.log(newTransaction)
+        // try {
+        //     const response = await fetch('http://localhost:3000/transactions',{
+        //         method:'POST',
+        //         headers:{
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body:JSON.stringify(newTransaction)
+        //     })
+        //     if(response.ok){
+        //         console.log('transação criada com sucesso!')
+        //         getAllTransactions();
+        //     }else{
+        //         console.log("erro ao criar a transação")
+        //     }
+        // } catch (error) {
+        //     console.error("erro na requisição", error)
+        // }
     }
 
     return (
         <TransactionsContext.Provider value={{
-            CreateNewUser,CreateNewTransaction,GetUserName,AllTransactions, AllUsers
+            CreateNewUser,CreateNewTransaction,AllTransactions, AllUsers
         }}>
             {children}
         </TransactionsContext.Provider>

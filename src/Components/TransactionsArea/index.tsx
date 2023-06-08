@@ -6,7 +6,6 @@ import * as C from './styles'
 export const TransactionsArea = () => {
     const { AllTransactions, AllUsers } = UseTransactionContext();
 
-    console.log(AllUsers, AllTransactions)
     const getUserName = (userId: string):string => {
       const user = AllUsers.find(user => user.id === userId)
       return user ? user.name : '';
@@ -14,7 +13,7 @@ export const TransactionsArea = () => {
 
   return (
     <C.Container>
-        <C.Title>Últimas Transações</C.Title>
+        <C.Title>Últimas Transações</ C.Title>
         <C.TransactionList>
            { 
             AllTransactions.map((transaction,index) => {

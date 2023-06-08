@@ -1,3 +1,4 @@
+import { formattedNewDate } from '../../helpers/dateFormatHelper';
 import { IDefaultTransaction } from '../../types/users'
 import * as C from './styles'
 
@@ -6,15 +7,6 @@ interface IProps {
     userName:string | undefined;
 }
 
-const formattedNewDate = (date: string) => {
-    const currentDate = new Date(date)
-    const formattedDate = currentDate.toLocaleDateString("pt-BR", {
-        day:'numeric',
-        month:'numeric',
-        year:'numeric'
-    });
-  return formattedDate;
-}
 
 export const TransactionItem = ({transaction,userName}: IProps) => {
   
