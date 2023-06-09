@@ -23,7 +23,7 @@ export const Aside = () => {
                     </C.AsideHeader>
                     ):(
                         <C.AsideHeader>
-                            <C.AsideTitle>Caixinha</C.AsideTitle>
+                            <img src="src\assets\imgs\Logo-Caixinha.svg" alt="Logo Caixinha" />
                         </C.AsideHeader>
                     )
             }

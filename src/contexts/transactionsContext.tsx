@@ -96,23 +96,23 @@ export const TransactionsProvider = ({children}: IChildren) => {
         }
 
         console.log(newTransaction)
-        // try {
-        //     const response = await fetch('http://localhost:3000/transactions',{
-        //         method:'POST',
-        //         headers:{
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body:JSON.stringify(newTransaction)
-        //     })
-        //     if(response.ok){
-        //         console.log('transação criada com sucesso!')
-        //         getAllTransactions();
-        //     }else{
-        //         console.log("erro ao criar a transação")
-        //     }
-        // } catch (error) {
-        //     console.error("erro na requisição", error)
-        // }
+        try {
+            const response = await fetch('http://localhost:3000/transactions',{
+                method:'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify(newTransaction)
+            })
+            if(response.ok){
+                console.log('transação criada com sucesso!')
+                getAllTransactions();
+            }else{
+                console.log("erro ao criar a transação")
+            }
+        } catch (error) {
+            console.error("erro na requisição", error)
+        }
     }
 
     return (

@@ -2,12 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Routes/Root'
-import { ErrorPage } from './Routes/ErrorPage/styles'
 import { Home } from './Routes/Home'
 import { AppProvider } from './contexts/appContext'
 import { TransactionsProvider } from './contexts/transactionsContext'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
+import { ErrorPage } from './Routes/ErrorPage'
 
 const router = createBrowserRouter([
   {

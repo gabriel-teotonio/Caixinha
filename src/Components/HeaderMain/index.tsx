@@ -8,7 +8,7 @@ export const HeaderMain = () => {
   const {openModal} = useModalContext()
   return (
     <C.Container>
-        <C.TitleHeaderMain>Home</C.TitleHeaderMain>
+        <C.TitleHeaderMain>Olá, Gabriel! <br /> </C.TitleHeaderMain>
         <ActionButton 
         icon={<MdFormatListBulletedAdd />}
         action={() => openModal(<CreationModal />)}
