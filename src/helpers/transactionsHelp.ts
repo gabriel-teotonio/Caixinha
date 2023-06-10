@@ -12,3 +12,7 @@ export const sortTransactionsByDate = (allTransactions: IDefaultTransaction[]) =
         return 0;
     })
 }
+
+export const formatedTypeTransaction = (type: string) => {
+    return type === "payment" ? "Pagou" : "Emprestou";
+}

@@ -1,19 +1,18 @@
 import { formattedNewDate } from '../../helpers/dateFormatHelper';
-import { IDefaultTransaction } from '../../types/users'
+import { IDefaultTransaction, IUser } from '../../types/users'
 import * as C from './styles'
 
 interface IProps {
     transaction: IDefaultTransaction;
-    userName:string | undefined;
+    user: IUser | null;
 }
 
 
-export const TransactionItem = ({transaction,userName}: IProps) => {
-  
+export const TransactionItem = ({transaction,user}: IProps) => {
   return (
     <C.Container>
         <C.ItemInfos>
-        <C.ItemName>{userName}</C.ItemName>
+        <C.ItemName to={`users/${user?.id}`}>{user?.name}</C.ItemName>
             <C.SubInfos>
                 <C.TransactionType>{transaction.type === 'payment'?'Pagou':'Emprestou'}</C.TransactionType>
                 <C.TransactionsDate>{formattedNewDate(transaction.date)}</C.TransactionsDate>

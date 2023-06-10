@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.li`
@@ -13,9 +14,12 @@ export const SubInfos = styled.div`
     font-size: 14px;
     margin-top: .3rem;
 `
-export const ItemName = styled.h5`
+export const ItemName = styled(NavLink)`
     font-size: 18px;
     font-weight: 500;
+    :hover{
+        text-decoration: underline;
+    }
 `
 export const TransactionType = styled.div``
 export const TransactionsDate = styled.div``

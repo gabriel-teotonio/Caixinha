@@ -8,6 +8,7 @@ import { TransactionsProvider } from './contexts/transactionsContext'
 import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
 import { ErrorPage } from './Routes/ErrorPage'
+import { UserDetail } from './Routes/UserDetailPage'
 
 const router = createBrowserRouter([
   {
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
       {
         index:true,
         element: <Home />
-      }
+      },
+      {
+        element: <UserDetail />,
+        path: "users/:userId"
+      },
      ]
   },
 

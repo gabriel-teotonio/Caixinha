@@ -1,4 +1,5 @@
 import { UseTransactionContext } from '../../contexts/transactionsContext'
+import { IUser } from '../../types/users';
 import { TransactionItem } from '../TransactionItem'
 import * as C from './styles'
 
@@ -6,9 +7,9 @@ import * as C from './styles'
 export const TransactionsArea = () => {
     const { AllTransactions, AllUsers } = UseTransactionContext();
 
-    const getUserName = (userId: string):string => {
+    const getUser = (userId: string):IUser | null => {
       const user = AllUsers.find(user => user.id === userId)
-      return user ? user.name : '';
+      return user ? user : null;
     }
 
   return (
@@ -17,11 +18,11 @@ export const TransactionsArea = () => {
         <C.TransactionList>
            { 
             AllTransactions.map((transaction,index) => {
-                if(index <= 6){
+                if(index <= 10){
                     return <TransactionItem
                     key={transaction.id} 
                     transaction={transaction}
-                    userName={getUserName(transaction.userId)}
+                    user={getUser(transaction.userId)}
                     />
                 }
             }
