@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    max-height: 100vh;
+    min-height: 100vh;
     max-width: 100%;
 `
 
@@ -16,6 +16,7 @@ export const Main = styled.main`
     @media (max-width:430px) {
         margin: 0;
         padding: 1rem;
+        padding-bottom: 4rem;
     }
 `
 

@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "name": "Rajesh",
+      "phone": "91984479773",
+      "id": "23SDRF-34FT56"
+    },
+    {
+      "name": "Gabriel Teotonio",
+      "phone": "(91) 9844-79773",
+      "id": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4"
+    },
+    {
+      "name": "Priscilla Moura",
+      "phone": "(91) 9894-79067",
+      "id": "84baf23b-958f-4757-82e1-d808b24bb8c9"
+    }
+  ],
+  "transactions": [
+    {
+      "value": 20,
+      "date": "2023-04-11T00:00:00.000Z",
+      "userId": "23SDRF-34FT56",
+      "type": "loan",
+      "id": "23EKS-SDNS3R"
+    },
+    {
+      "value": 200,
+      "date": "2023-04-16T00:00:00.000Z",
+      "userId": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4",
+      "type": "payment",
+      "id": "1GY3B-NDU334"
+    },
+    {
+      "userId": "23SDRF-34FT56",
+      "type": "payment",
+      "id": "00008529-7feb-4573-9c2e-e10d3934031c",
+      "value": 80,
+      "date": "2023-07-08T03:00:00.000Z"
+    },
+    {
+      "userId": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4",
+      "type": "payment",
+      "id": "ea2ea358-17a1-46d6-8d97-b9c145101419",
+      "value": 1500,
+      "date": "2023-07-08T03:00:00.000Z"
+    },
+    {
+      "userId": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4",
+      "type": "loan",
+      "id": "e129323b-1c00-489b-a853-2ce91478f263",
+      "value": 400,
+      "date": "2023-06-10T03:00:00.000Z"
+    },
+    {
+      "userId": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4",
+      "type": "loan",
+      "id": "22fb205f-12e7-41d0-8eeb-854fbd2b075b",
+      "value": 600,
+      "date": "2023-06-10T03:00:00.000Z"
+    },
+    {
+      "userId": "c9ab876d-c1f8-4dfb-89d6-c0e7c238fac4",
+      "type": "loan",
+      "id": "5b51a958-1329-4fd3-b208-08c2a1072726",
+      "value": 200,
+      "date": "2023-06-10T03:00:00.000Z"
+    }
+  ]
+}

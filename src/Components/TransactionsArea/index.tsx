@@ -1,25 +1,28 @@
 import { UseTransactionContext } from '../../contexts/transactionsContext'
-import { Users } from '../../data/data'
+import { IUser } from '../../types/users';
 import { TransactionItem } from '../TransactionItem'
 import * as C from './styles'
 
 
 export const TransactionsArea = () => {
+    const { AllTransactions, AllUsers } = UseTransactionContext();
 
-    const { getAllTransactions } = UseTransactionContext();
+    const getUser = (userId: string):IUser | null => {
+      const user = AllUsers.find(user => user.id === userId)
+      return user ? user : null;
+    }
 
   return (
     <C.Container>
-        <C.Title>Últimos pagamentos</C.Title>
+        <C.Title>Últimas Transações</ C.Title>
         <C.TransactionList>
            { 
-            getAllTransactions().map((transaction,index) => {
-                const userName = Users.find(user => user.id === transaction.userId)
-                if(index <= 6){
+            AllTransactions.map((transaction,index) => {
+                if(index <= 10){
                     return <TransactionItem
                     key={transaction.id} 
                     transaction={transaction}
-                    userName={userName?.name}
+                    user={getUser(transaction.userId)}
                     />
                 }
             }

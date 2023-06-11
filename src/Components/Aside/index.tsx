@@ -23,13 +23,13 @@ export const Aside = () => {
                     </C.AsideHeader>
                     ):(
                         <C.AsideHeader>
-                            <C.AsideTitle>Caixinha</C.AsideTitle>
+                            <img src="src\assets\imgs\Logo-Caixinha.svg" alt="Logo Caixinha" />
                         </C.AsideHeader>
                     )
             }
         <C.ListNavigate>
             <C.ItemNavigate>
-                <C.NavLink to={"/home"}>
+                <C.NavLink to={"/"}>
                     <C.IconWrapper><BsGrid1X2 /></C.IconWrapper>
                     Home
                 </C.NavLink>

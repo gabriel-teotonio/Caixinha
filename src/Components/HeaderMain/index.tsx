@@ -1,11 +1,18 @@
+import { MdFormatListBulletedAdd } from 'react-icons/md';
+import { ActionButton } from '../Buttons/ActionButton';
 import * as C from './styles';
-import { MdPlaylistAdd } from 'react-icons/md'
+import { useModalContext } from '../../contexts/modalContext';
+import { CreationModal } from '../CreationModal';
 
 export const HeaderMain = () => {
+  const {openModal} = useModalContext()
   return (
     <C.Container>
-        <C.TitleHeaderMain>Home</C.TitleHeaderMain>
-        <button><MdPlaylistAdd size={30} /></button>
+        <C.TitleHeaderMain>Olá, Gabriel! <br /> </C.TitleHeaderMain>
+        <ActionButton 
+        icon={<MdFormatListBulletedAdd />}
+        action={() => openModal(<CreationModal />)}
+        />
     </C.Container>
   )
 }

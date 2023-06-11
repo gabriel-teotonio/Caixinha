@@ -10,10 +10,16 @@ export const theme: ITheme = {
         blue: '#2663FF',
         lightBlue_100:'#6475A1',
         lightBlue_200: '#364261',
+
         darkBlue: '#071438',
         darkBlueTransparent: 'rgba(0, 24, 86, 0.12)',
+
         whiteBlue: '#EFF4FF',
         white:'#fff',
+
+        colorSuccess:'#00ca8a',
+        colorError: '#eb0257',
+
         shadowInfoItem: '1px 1px 4px  rgba(0, 24, 86, 0.08)'
     },
 

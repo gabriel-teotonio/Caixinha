@@ -2,19 +2,18 @@ import { UseTransactionContext } from "../../contexts/transactionsContext";
 import { InfoItem } from "../InfoItem"
 import { useState, useMemo } from 'react'
 import { Container, Carrousel } from "./styles";
-import { Users } from "../../data/data";
 
 export const InfoArea = () => {
 
-    const { getAllTransactions } = UseTransactionContext();
+    const { AllTransactions } = UseTransactionContext();
     const [payments, setPayments] = useState(0)
     const [loans, setLoans] = useState(0)
-    
+
     useMemo(() => {
         let sumPayments = 0;
         let sumLoans = 0;
     
-        getAllTransactions().map(item => {
+        AllTransactions.forEach(item => {
           if(item.type === 'payment'){
             sumPayments += item.value
           }
@@ -25,7 +24,7 @@ export const InfoArea = () => {
     
         setPayments(sumPayments)
         setLoans(sumLoans)
-    }, [Users])
+    }, [AllTransactions])
 
   return (
     <Container>

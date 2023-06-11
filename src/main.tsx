@@ -2,9 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Root from './Routes/Root'
-import { ErrorPage } from './Routes/ErrorPage/styles'
 import { Home } from './Routes/Home'
 import { AppProvider } from './contexts/appContext'
+import { TransactionsProvider } from './contexts/transactionsContext'
+import { ThemeProvider } from 'styled-components'
+import { theme } from './theme'
+import { ErrorPage } from './Routes/ErrorPage'
+import { UserDetail } from './Routes/UserDetailPage'
 
 const router = createBrowserRouter([
   {
@@ -14,9 +18,13 @@ const router = createBrowserRouter([
 
      children: [
       {
-        path: "/home",
+        index:true,
         element: <Home />
-      }
+      },
+      {
+        element: <UserDetail />,
+        path: "users/:userId"
+      },
      ]
   },
 
@@ -24,8 +32,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <AppProvider>
-      <RouterProvider router={router} />
+   < AppProvider>
+      <TransactionsProvider>
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </TransactionsProvider>
     </AppProvider>
   </React.StrictMode>,
 )
