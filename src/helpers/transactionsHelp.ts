@@ -1,5 +1,9 @@
 import { IDefaultTransaction } from "../types/users";
 
+import { v4 as uuidv4 } from 'uuid'
+
+export const generateRandomId = () => uuidv4();
+
 export const sortTransactionsByDate = (allTransactions: IDefaultTransaction[]) => {
     allTransactions.sort((a:IDefaultTransaction,b:IDefaultTransaction) => {
         const dateA = new Date(a.date);

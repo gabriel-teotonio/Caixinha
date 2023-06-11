@@ -1,9 +1,9 @@
 import { createContext,useContext, useEffect, useState } from "react";
 import { IDefaultTransaction } from "../types/users";
-import { generateRandomId } from "../data/data";
 import { IUser } from "../types/users";
 import { toastError, toastSuccess } from "../helpers/toastfyHelp";
 import { ajustedDate } from "../helpers/dateFormatHelper";
+import { generateRandomId } from "../helpers/transactionsHelp";
 
 interface IUserFormData {
     name: string;
