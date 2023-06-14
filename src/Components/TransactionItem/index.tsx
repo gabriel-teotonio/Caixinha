@@ -12,7 +12,7 @@ export const TransactionItem = ({transaction,user}: IProps) => {
   return (
     <C.Container>
         <C.ItemInfos>
-        <C.ItemName to={`users/${user?.id}`}>{user?.name}</C.ItemName>
+        <C.ItemName to={`/users/${user?.id}`}>{user?.name}</C.ItemName>
             <C.SubInfos>
                 <C.TransactionType>{transaction.type === 'payment'?'Pagou':'Emprestou'}</C.TransactionType>
                 <C.TransactionsDate>{formattedNewDate(transaction.date)}</C.TransactionsDate>
