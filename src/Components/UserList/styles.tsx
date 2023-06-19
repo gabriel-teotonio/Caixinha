@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const List = styled.ul`
    max-width: 400px;
    margin-top: 1rem;
+
+   input{
+      border-radius: 4px;
+      border: #00000061 1px solid;
+      padding: .4rem;
+   }
 `
 export const Item = styled.li`
    margin-top: .5rem;

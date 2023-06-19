@@ -44,7 +44,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
 
     const getAllTransactions = async () => {
         const response = await fetch('http://localhost:3000/transactions')
-        const allTransactions = await response.json()
+        const allTransactions:IDefaultTransaction[] = await response.json()
 
         setAllTransactions(allTransactions)
     }
