@@ -4,6 +4,7 @@ import { IUser } from "../types/users";
 import { toastError, toastSuccess } from "../helpers/toastfyHelp";
 import { ajustedDate } from "../helpers/dateFormatHelper";
 import { generateRandomId } from "../helpers/transactionsHelp";
+import { formattedPhoneNumber } from "../helpers/maskInputs";
 
 interface IUserFormData {
     name: string;
@@ -59,7 +60,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
         const newUser = 
             {
                 name: user.name,
-                phone: user.phone,
+                phone: formattedPhoneNumber(user.phone),
                 id: generateRandomId(),
             }
 
