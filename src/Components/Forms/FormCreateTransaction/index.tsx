@@ -29,7 +29,7 @@ export const FormCreateTransaction = () => {
       let errors:String[] = []
       if(formData.user === "")  errors.push("usuário")
       if(formData.typeTransaction === "") errors.push("Tipo de transação")
-      if(parseFloat(formData.value) <= 0) errors.push("Valor da transação")
+      if(formData.value === "") errors.push("Valor da transação")
       if(formData.date === "") errors.push("Data")
       
       if(errors.length === 0){
