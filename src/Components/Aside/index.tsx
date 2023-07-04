@@ -1,9 +1,10 @@
 import * as C from './styles';
 import { BsGrid1X2 } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
-import { MdOutlinePayments, MdClose } from 'react-icons/md';
+import { MdClose } from 'react-icons/md';
 import { useAppContext } from '../../contexts/appContext';
 import { useModalContext } from '../../contexts/modalContext';
+import LogoCaixinha from '../../assets/imgs/Logo-Caixinha.svg'
 
 export const Aside = () => {
     const { isMobileScreen } = useAppContext();
@@ -23,27 +24,19 @@ export const Aside = () => {
                     </C.AsideHeader>
                     ):(
                         <C.AsideHeader>
-                            <img src="src\assets\imgs\Logo-Caixinha.svg" alt="Logo Caixinha" />
+                            <img src={LogoCaixinha} alt="Logo Caixinha" />
                         </C.AsideHeader>
                     )
             }
         <C.ListNavigate>
             <C.ItemNavigate>
                 <C.NavLink to={"/"}>
-                    <C.IconWrapper><BsGrid1X2 /></C.IconWrapper>
-                    Home
+                    <C.IconWrapper><BsGrid1X2 /></C.IconWrapper> Home
                 </C.NavLink>
             </C.ItemNavigate>
             <C.ItemNavigate>
-                <C.NavLink to={"/loans"}>
-                    <C.IconWrapper><MdOutlinePayments /></C.IconWrapper>
-                    Empréstimos
-                </C.NavLink>
-            </C.ItemNavigate>
-            <C.ItemNavigate>
-                <C.NavLink to={"/payments"}>
-                    <C.IconWrapper><FiUsers size={20}/></C.IconWrapper>
-                    Pagamentos
+                <C.NavLink to={"/users"}>
+                    <C.IconWrapper><FiUsers size={20}/></C.IconWrapper> Usuários
                 </C.NavLink>
             </C.ItemNavigate>
         </C.ListNavigate>

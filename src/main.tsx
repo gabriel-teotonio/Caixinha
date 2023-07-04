@@ -9,6 +9,7 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
 import { ErrorPage } from './Routes/ErrorPage'
 import { UserDetail } from './Routes/UserDetailPage'
+import { UsersPage } from './Routes/UsersPage'
 
 const router = createBrowserRouter([
   {
@@ -22,8 +23,15 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        element: <UserDetail />,
-        path: "users/:userId"
+        element: <UsersPage />,
+        path: "/users",
+        
+        children: [
+          {
+            element: <UserDetail />,
+            path: "/users/:userId"
+          }
+        ]
       },
      ]
   },

@@ -4,6 +4,7 @@ import { IUser } from "../types/users";
 import { toastError, toastSuccess } from "../helpers/toastfyHelp";
 import { ajustedDate } from "../helpers/dateFormatHelper";
 import { generateRandomId } from "../helpers/transactionsHelp";
+import { formattedPhoneNumber } from "../helpers/maskInputs";
 
 interface IUserFormData {
     name: string;
@@ -44,7 +45,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
 
     const getAllTransactions = async () => {
         const response = await fetch('http://localhost:3000/transactions')
-        const allTransactions = await response.json()
+        const allTransactions:IDefaultTransaction[] = await response.json()
 
         setAllTransactions(allTransactions)
     }
@@ -59,7 +60,7 @@ export const TransactionsProvider = ({children}: IChildren) => {
         const newUser = 
             {
                 name: user.name,
-                phone: user.phone,
+                phone: formattedPhoneNumber(user.phone),
                 id: generateRandomId(),
             }
 

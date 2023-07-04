@@ -12,6 +12,7 @@ export const Main = styled.main`
     flex: 1;
     min-height: 100%;
     max-width: 100%;
+    position: relative;
 
     @media (max-width:430px) {
         margin: 0;
